@@ -1,0 +1,234 @@
+:root{                                              /*1*/
+    --vermelho: #E50914;
+    --preta: #141414;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;                         /*2*/
+}
+
+body{
+    background: var(--preta);                       /*3*/
+    font-family: 'Bahnschrift', Times, serif;       /*4*/
+    color: white;                                 /*14*/                         
+}
+
+
+header .container{
+    display: flex;                                  /*9*/
+    flex-direction: row;
+    align-items: center;                            /*10*/
+    justify-content: space-between;                 /*11*/
+}
+
+header .logo{
+    color: var(--vermelho);
+    margin-left: 5px;
+    font-family: 'Bahnschrift', Times;
+    font-size: 40px;
+}
+
+header nav a{                                       /*5*/
+    text-decoration: none;                          /*6*/
+    color: #AAA;
+    margin-right: 10px;                             /*7*/
+}
+
+header nav a:hover{                                 /*8*/
+    color: #ffffff;
+    background-color: #a51f1f;
+}
+
+
+/*FILME PRINCIPAL*/
+.filme-principal{
+    font-size: 14px;
+    background-image: linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)100%), url('/img/capa-avg.jpg');         /*15*/ 
+    height: 400px;                                  /*16*/
+    background-size: cover;                         /*17*/
+    display: flex;
+    flex-direction: column;                         /*19*/
+    justify-content: center;
+    align-items: flex-start;                        /*20*/
+}
+
+.filme-principal .descricao{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.filme-principal .titulo{
+    margin-top: 15%;
+    font-size: 40px;
+    font-family: 'Bahnschrift', Arial, sans-serif;
+}
+
+.botao{
+    background-color: rgba(0,0,0,.50);            /*21*/
+    border: none;                                   /*22*/
+    color: white;                                 /*23*/
+    padding: 15px 30px;                             /*24*/
+    margin-right: 15px;
+    font-size: 12px;
+    border-radius: 15px;                            /*25*/
+    cursor: pointer;                                /*26*/
+    transition: .5s ease all;                       /*27*/
+}
+
+.botao:hover{
+    background-color: white;
+    color: black;
+}
+
+.filme-principal .botao i{
+    margin-right: 8px;
+}
+
+.container{
+    margin-left: 20px;
+}
+
+.filme-principal .container{
+    width: 70%;
+}
+
+.box-filme{
+    height: 350px;
+    /*max-width: 73%;*/
+    display: block;
+    cursor:pointer;
+    border-radius: 12px;
+    justify-content: space-around;
+    margin-left: 8px;
+}
+
+.carrossel-filmes{
+    margin-top: 5px;
+}
+
+
+
+
+
+/* ANOTACOES
+
+1 - Declarando DUAS variaveis, chamadas vermelho e preta, e para isso
+tem que ser declaradas na raiz(root) do documento.
+
+2 - o border-box garante que todos os elementos irao ficar dentro
+da caixa. Se caso o elemento for maior que a caixa, esse elemento
+ira diminuir para caber dentro da caixa.
+
+Por que temos que criar essa duas variaveis? Boa Pratica. 
+Imagine que usamos vamos setar varios outros elementos usando 
+essas cores, dessa forma, ao inves de sair procurando no arquivo css
+todo aonde foi colocado a cor, precisamos apenas mudar nas variaveis
+criadas, que a alteracao eh replicada pro arquivo css inteiro.
+
+3 - Forma de usar a variavel criada.
+
+4 - A primeira fonte eh a principal, e se por algum motivo,
+nao tiver essa fonte, vai carregar a segunda(times) e se nao tiver,
+vai carregar a terceira(serif)
+
+5 - Aqui, acessamos os links, e para isso dizemos ao css, o caminho
+ate chegar nesses links. Os links(a), estao dentro do (nav) e o (nav)
+esta dentro do header.
+
+6 - Retira o sublinhado que ficam em links.
+
+7 - Coloca um distanciamento entre os links.
+
+8 - Aqui queremos modificar o comportamento de quando passamos a seta
+do mouse por cima dos links
+
+9 - Aqui dizemos que queremos usar o display do tipo flexbox, e esse
+tipo de display, coloca os elementos da caixa em uma linha horizontal
+
+Se nao declarar a propriedade *flex-direction*, o padrao dela vai ser
+row, que eh a linha horizontal
+
+10 - Deixando os elementos no centro
+
+11 - Cria um espaco entre a primeira tag filha do container,a <h2>
+e a segunda tag, que eh a <nav>. O justify-content sempre segue a direcao
+do flex-direction.
+
+12 - (Estah no arquivo index). Para criar uma div jah
+colocando um nome para a CLASSE que ela vai ter, digite:
+div.nomeDaClasseDaDiv e depois enter
+
+13 - (Estah no arquivo index).Essa div que possui uma classe 
+de nome container, tambem foi criada dentro da tag header.
+O objetivo disso eh agrupar os elementos que voce vai colocar 
+dentro dessa div, para futuramente ao ser necessario 
+fazer modificacoes, voce, muda APENAS na div class container,
+ e NAO vai ser necessario mudar de elemento por elemento.
+
+14 - Um conceito legal. Ao mudar a cor do body para white,
+o titulo h3 fica branco. Isso porque, ao mudar a cor do
+elemento PAI, o FILHO recebe essa modificacao.
+h3 titulo estah dentro da div container e esse estah dentro
+da div filme-principal, e esse estah dentro da tag body
+Resumindo, nesse caso, a tag body eh o PAI, e h3 e as divs
+sao os FILHOS
+
+15 - Referenciando uma imagem no background, usando a propriedade url
+     A propriedade linear-gradient, que solicita DUAS CORES, por isso 2 rgba, 
+     cria uma camada fina em cima da imagem com a tonalidade de preto, 
+     melhorando o contraste do que aparece dentro da imagem, os textos por exemplo
+
+16 - Aumentando a altura da caixa, a div filme-principal
+
+17 - Com essa propriedade e valor da propriedade, a nossa imagem vai
+ficar do tamanho da caixa, a div filme-principal
+
+18 - (Estah no arquivo index). A tag role, geralmente eh colocada
+para deixar claro que independente de onde o botao for 
+renderizado, ele de fato eh um botao
+
+19 - Quando usar o display-flex, por padrao, o flex-direction vai ser
+do tipo row. Nesse caso, queremos o flex-direction do tipo coluna.
+Nesse caso, como o flex-direction eh coluna, o justify-content
+vai arrumar os elementos de forma VERTICAL, pq a coluna
+deixa os elementos na VERTICAL. Por isso o justify-content
+sempre segue a orientacao do flex-direction
+
+20 - O align-item arruma nossas itens da esquerda pra direta. No caso,
+a propriedade utilizada, faz com que os elementos comecem da esquerda.
+Segundo o professor, o justify-content e o align-items, se invertem, 
+dependendo da direcao do flex-direction. Lembrando que o justify-content
+segue a mesma direcao do flex-direction
+
+21 - A cor de fundo do botao fica preta e um pouco transparente, o .50 que 
+eh responsavel pela transparencia
+
+22 - Tira a borda do botao
+
+23 - A cor do texto do botao fica branca
+
+24 - Refere-se ao espaco interno do nosso elemento. Se colocar 1 valor,
+esse valor sera usada para os 4 espacos internos, cima, baixo, esquerda
+e direita.
+Se tivesse colocado 2 valores, ex: 10px 30 px, o css aplica esses valores
+no sentido horario, do relogio. O primeiro valor sera aplicado para cima e
+para baixo, e o SEGUNDO valor, sera aplicado para esquerda e para a direita
+
+25 - Arredonda as bordas do botao
+
+26 - Ao passar o mouse por cima do botao, vira a maozinha, significando para
+o usuario que aquilo eh um botao, que aquilo tem uma funcionalidade
+
+27 - Com essa propriedade modificamos a animacao, de quando o usuario tirar o mouse
+de cima do botao, mostrar a caixa voltando da cor branca para a cor preta em 
+6 segundos, usando o .6s
+
+** - Toda vez que voce cria uma div, ela vem com display-block
+** - figma, adobe xg pra desenhar telas 
+** - font awesome - site para icones
+** - ler a respeito css wraPPERS e css containers
+
+PAREI NA AULA 8
+*/
